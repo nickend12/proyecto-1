@@ -27,6 +27,11 @@ public class EquipoService {
         return equipoRepository.findById(id).orElse(null);
     }
 
+    public void eliminarEquipo(Long id) {
+        equipoRepository.deleteById(id);
+    }
+    
+
     public void actualizarEstado(Long id, Estado estado) {
         Equipo equipo = equipoRepository.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("Equipo no encontrado"));

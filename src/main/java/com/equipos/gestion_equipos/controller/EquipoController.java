@@ -45,6 +45,13 @@ public class EquipoController {
         return "redirect:/equipos";
     }
 
+    @PostMapping("/equipos/eliminar")
+    public String eliminarEquipo(@RequestParam("id") Long id, RedirectAttributes redirectAttributes) {
+    equipoService.eliminarEquipo(id);
+    redirectAttributes.addFlashAttribute("mensaje", "Equipo eliminado con éxito");
+    return "redirect:/equipos";}
+
+
     @GetMapping("/test")
     @ResponseBody
     public String testEndpoint() {
